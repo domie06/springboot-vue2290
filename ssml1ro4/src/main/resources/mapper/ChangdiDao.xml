@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ChangdiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ChangdiEntity" id="changdiMap">
+        <result property="changdibianhao" column="changdibianhao"/>
+        <result property="changdimingcheng" column="changdimingcheng"/>
+        <result property="changdiweizhi" column="changdiweizhi"/>
+        <result property="shifoukongxian" column="shifoukongxian"/>
+        <result property="tupian" column="tupian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.ChangdiVO" >
+		SELECT * FROM changdi  changdi         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.ChangdiVO" >
+		SELECT  changdi.* FROM changdi  changdi
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.ChangdiView" >
+
+		SELECT  changdi.* FROM changdi  changdi 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.ChangdiView" >
+		SELECT * FROM changdi  changdi <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
